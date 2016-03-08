@@ -11,7 +11,8 @@ public class Employee {
     }
 
     public String getName() {
-        return name;
+//        return name;
+    	return this.name;		// ??
     }
 
     public void setName(String name) {
@@ -24,5 +25,25 @@ public class Employee {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    public void toString(Manager m) {
+    	System.out.println("{ Name: " + m.getName() + ", Salaray: " + m.getSalary() " }");
+    }
+    
+    public boolean equals(Employee e1, Employee e2) {
+    	boolean result;
+    	result = true;
+    	
+    	if (e1.getName() != e2.getName() ||
+    			e1.getSalary() != e2.getSalary()) {
+    		result = false;
+    	}
+    	
+    	return result;
+    }
+    
+    public clone(Employee e) {
+    	return this(e.getName(), e.getSalary(), e.hireDate);
     }
 }
