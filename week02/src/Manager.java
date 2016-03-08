@@ -35,24 +35,32 @@ public class Manager extends Employee {
     	super.setSalary(salary)
     }
     
-    public void toString(Manager m) {
-    	System.out.println("{ Name: " + m.getName() + ", Salaray: " + m.getSalary() ", Hire date: " + m.getHireDate() + " }");
+    public String toString(Manager m) {
+    // 	System.out.println("{ Name: " + m.getName() + ", Salaray: " + m.getSalary() ", Hire date: " + m.getHireDate() + " }");
+    	return "{ Name: " + m.getName() + ", Salaray: " + m.getSalary() ", Hire date: " + m.getHireDate() + " }";
     }
     
-    public boolean equals(Manager m1, Manager m2) {
-    	boolean result;
-    	result = true;
-    	
-    	if (m1.getName() != m2.getName() ||
-    			m1.getSalary() != m2.getSalary() ||
-    			m1.getHireDate() != m2.getHireDate()) {
-    		result = false;
-    	}
-    	
-    	return result;
+    public boolean equals(Object o) {
+//    	boolean result;
+//    	result = true;
+//    	
+//    	if (m1.getName() != m2.getName() ||
+//    			m1.getSalary() != m2.getSalary() ||
+//    			m1.getHireDate() != m2.getHireDate()) {
+//    		result = false;
+//    	}
+//    	
+//    	return result;
     }
     
     public clone(Manager m) {
-    	return this(m.getName(), m.getSalary(), m.hireDate);
+//    	return this(m.getName(), m.getSalary(), m.hireDate);
+        try {
+     	   Manager m = (Manager) super.clone();
+     
+        } Catch (CloneNotSupportedException e) {
+     	   e.printStackTrace();
+     	   return null;
+        }
     }
 }

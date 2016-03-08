@@ -1,7 +1,7 @@
 /**
  * Created by ljcusack on 8/03/2016.
  */
-public class Employee {
+public class Employee implements Cloneable {
     private String name;
     private int salary;
 
@@ -27,23 +27,37 @@ public class Employee {
         this.salary = salary;
     }
 
-    public void toString(Manager m) {
-    	System.out.println("{ Name: " + m.getName() + ", Salaray: " + m.getSalary() " }");
+    public String toString(Manager m) {
+    // 	System.out.println("{ Name: " + m.getName() + ", Salaray: " + m.getSalary() " }");
+    	return "{ Name: " + m.getName() + ", Salaray: " + m.getSalary() " }";
     }
     
-    public boolean equals(Employee e1, Employee e2) {
-    	boolean result;
-    	result = true;
-    	
-    	if (e1.getName() != e2.getName() ||
-    			e1.getSalary() != e2.getSalary()) {
-    		result = false;
-    	}
-    	
-    	return result;
+    public boolean equals(Object o) {
+    // 	boolean result;
+    // 	result = true;
+    // 	
+    // 	if (e1.getName() != e2.getName() ||
+    // 			e1.getSalary() != e2.getSalary()) {
+    // 		result = false;
+    // 	}
+    // 	
+    // 	return result;
+      
+      if (o == null) return false;
+      if (o == this) return true;
+      if (this.getClass() != o.getClass()) return false;
+      
     }
     
-    public clone(Employee e) {
-    	return this(e.getName(), e.getSalary(), e.hireDate);
+    public Employee clone() {
+    // 	return this(e.getName(), e.getSalary(), e.hireDate);
+       
+       try {
+    	   Employee e = (Employee) super.clone();
+    
+       } Catch (CloneNotSupportedException e) {
+    	   e.printStackTrace();
+    	   return null;
+       }
     }
 }
