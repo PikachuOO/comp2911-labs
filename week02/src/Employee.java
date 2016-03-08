@@ -47,6 +47,9 @@ public class Employee implements Cloneable {
       if (o == this) return true;
       if (this.getClass() != o.getClass()) return false;
       
+      Employee e = (Employee) o;
+      return e.getName().equals(this.name) &&
+    		  e.getSalary() == this.salary;
     }
     
     public Employee clone() {
@@ -54,10 +57,12 @@ public class Employee implements Cloneable {
        
        try {
     	   Employee e = (Employee) super.clone();
-    
+    	   
        } Catch (CloneNotSupportedException e) {
     	   e.printStackTrace();
     	   return null;
        }
+       
+       return e;
     }
 }
