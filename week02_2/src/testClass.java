@@ -48,5 +48,10 @@ public class testClass {
 		System.out.println("m3.equals(m): " + m3.equals(m));
 		System.out.println("m3.equals(m2): " + m3.equals(m2));
 		System.out.println("");
+		
+		System.out.println("e.equals(m): " + e.equals(m));
+		System.out.println("e3.equals(m): " + e3.equals(m));
+		System.out.println("m.equals(e): " + m.equals(e));
+		System.out.println("m.equals(e3): " + m.equals(e3));
 	}
 }

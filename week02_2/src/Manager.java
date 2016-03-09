@@ -64,6 +64,7 @@ public class Manager extends Employee {
     
     public Manager clone() {
 //    	return this(m.getName(), m.getSalary(), m.hireDate);
+    	
     	Manager m;
     	m = (Manager) super.clone();
     	if (m != null) {
