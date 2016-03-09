@@ -4,18 +4,18 @@
 import java.util.GregorianCalendar;
 
 public class Manager extends Employee {
-    private Calendar hireDate;
+    private GregorianCalendar hireDate;
 
     public Manager(String name, int salary, GregorianCalendar hireDate) {
         super(name, salary);
         this.hireDate = hireDate;
     }
     
-    public Calendar getHireDate() {
+    public GregorianCalendar getHireDate() {
     	return this.hireDate;
     }
     
-    public void setHireDate(Calendar hireDate) {
+    public void setHireDate(GregorianCalendar hireDate) {
     	this.hireDate = hireDate;
     }
     
@@ -24,7 +24,7 @@ public class Manager extends Employee {
     }
     
     public void setName(String name) {
-    	super.setName = name;
+    	super.setName(name);
     }
     
     public int getSalary() {
@@ -32,12 +32,13 @@ public class Manager extends Employee {
     }
     
     public void setSalary(int salary) {
-    	super.setSalary(salary)
+    	super.setSalary(salary);
     }
     
-    public String toString(Manager m) {
+    public String toString() {
     // 	System.out.println("{ Name: " + m.getName() + ", Salaray: " + m.getSalary() ", Hire date: " + m.getHireDate() + " }");
-    	return "{ Name: " + m.getName() + ", Salaray: " + m.getSalary() ", Hire date: " + m.getHireDate().getTime() + " }";
+    	return "{ Name: " + this.getName() + ", Salary: " + this.getSalary() + ", Hire date: " + this.getHireDate().getTime() + " }";
+
     }
     
     public boolean equals(Object o) {
@@ -51,16 +52,33 @@ public class Manager extends Employee {
 //    	}
 //    	
 //    	return result;
+
+//    	if (o == null) return false;
+//    	if (o == this) return true;
+//    	if (o.getClass() != this.getClass()) return false;
+    	if (!super.equals(o)) return false;
+    	
+    	Manager m = (Manager) o;
+    	return this.getHireDate().equals(m.getHireDate());
     }
     
-    public clone(Manager m) {
+    public Manager clone() {
 //    	return this(m.getName(), m.getSalary(), m.hireDate);
-        try {
-     	   Manager m = (Manager) super.clone();
-     
-        } Catch (CloneNotSupportedException e) {
-     	   e.printStackTrace();
-     	   return null;
-        }
+    	Manager m;
+    	m = (Manager) super.clone();
+    	if (m != null) {
+    		m.hireDate = this.getHireDate();
+    	}
+    	return m;
+    	
+//        try {
+//     	   Manager m;
+//     	   m = (Manager) super.clone();
+//     	   return m;
+//     	   
+//        } catch (CloneNotSupportedException e) {
+//     	   e.printStackTrace();
+//     	   return null;
+//        }
     }
 }
