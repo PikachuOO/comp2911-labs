@@ -27,11 +27,13 @@ public class Employee implements Cloneable {
         this.salary = salary;
     }
 
+    @Override
     public String toString() {
     // 	System.out.println("{ Name: " + m.getName() + ", Salaray: " + m.getSalary() " }");
     	return "{ Name: " + this.getName() + ", Salary: " + this.getSalary() + " }";
     }
     
+    @Override
     public boolean equals(Object o) {
     // 	boolean result;
     // 	result = true;
@@ -45,13 +47,19 @@ public class Employee implements Cloneable {
       
       if (o == null) return false;
       if (o == this) return true;
-      if (this.getClass() != o.getClass()) return false;
+//      if (this.getClass() != o.getClass()) return false;
+      if (!(o instanceof Employee)) {
+    	  System.out.println("not an instanceof");
+    	  return false;
+      }
       
       Employee e = (Employee) o;
+//      printf("return: %d :: %d", e.getName().equals(this.name), e.getSalary() == this.salary);
       return e.getName().equals(this.name) &&
     		  e.getSalary() == this.salary;
     }
     
+    @Override
     public Employee clone() {
     // 	return this(e.getName(), e.getSalary(), e.hireDate);
 //       Employee e;

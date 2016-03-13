@@ -35,12 +35,14 @@ public class Manager extends Employee {
     	super.setSalary(salary);
     }
     
+    @Override
     public String toString() {
     // 	System.out.println("{ Name: " + m.getName() + ", Salaray: " + m.getSalary() ", Hire date: " + m.getHireDate() + " }");
     	return "{ Name: " + this.getName() + ", Salary: " + this.getSalary() + ", Hire date: " + this.getHireDate().getTime() + " }";
 
     }
     
+    @Override
     public boolean equals(Object o) {
 //    	boolean result;
 //    	result = true;
@@ -62,6 +64,7 @@ public class Manager extends Employee {
     	return this.getHireDate().equals(m.getHireDate());
     }
     
+    @Override
     public Manager clone() {
 //    	return this(m.getName(), m.getSalary(), m.hireDate);
     	
