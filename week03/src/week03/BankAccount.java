@@ -1,16 +1,20 @@
-package week03;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class BankAccount {
 	private int currentBalance;
-	private int amountToday;
+	private int dailyLimit;	// daily limit
 	private Calendar lastTransaction;
 	
-	private final int WITHDRAWAL_LIMIT;
+//	private final int WITHDRAWAL_LIMIT;
 	
-	public BankAccount() {
-		this.currentBalance = 0;
-		amountToday = 0;
-		WITHDRAWAL_LIMIT = 800;
+	public BankAccount(int startingBalance, int dailyLimit) {
+		this.currentBalance = startingBalance;
+		this.dailyLimit = dailyLimit;
+		this.lastTransaction = new GregorianCalendar();
+		
+//		this.amountToday = 0;
+//		WITHDRAWAL_LIMIT = 800;
 	}
 	
 	/**
@@ -20,30 +24,34 @@ public class BankAccount {
 	 * @param amount
 	 * @throws Exception
 	 */
-	public void withdraw(int amount) {
-		if (amountToday + amount > WITHDRAWAL_LIMIT) {
+	public void withdraw(int withdrawalAmount) {
+//		if (amountToday + withdrawalAmount > WITHDRAWAL_LIMIT) {
+		
+		if (dailyLimit - withdrawalAmount < 0) {
 			throw new Exception("Amount exceeds daily limit");
-		} else if (amount > accountBalance) {
+		} else if (withdrawalAmount > currentBalance) {
 			throw new Exception("Amount > Balance");
 		}
-		currentBalance = currentBalance - amount;
-		amountToday += amount;
+		
+		currentBalance = currentBalance - withdrawalAmount;
+		dailyLimit = dailyLimit - withdrawalAmount;
+//		amountToday += amount;
 	}
 	
-	public int getCurrentBalance() {
-		return this.currentBalance;
-	}
+public int getCurrentBalance() {
+	return this.currentBalance;
+}
 	
-	public void deposit(int amount) {
-		this.currentBalance += amount;
-	}
+public void deposit(int amount) {
+	this.currentBalance += amount;
+}
 	
-	public int withdrawal(int amount) {
-		if (this.currentBalance - amount >= 0) {
-			this.currentBalance -= amount;
-			return amount;
-		} else {
-			return -1;
-		}
-	}
+//	public int withdrawal(int amount) {
+//		if (this.currentBalance - amount >= 0) {
+//			this.currentBalance -= amount;
+//			return amount;
+//		} else {
+//			return -1;
+//		}
+//	}
 }
