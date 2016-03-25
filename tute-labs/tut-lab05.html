@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=iso-8859-1"><title></title>
+  <meta name="GENERATOR" content="OpenOffice.org 2.4 (Linux)">
+  <meta name="CREATED" content="20080311;16155595">
+  <meta name="CHANGED" content="20090309;13353600">
+  <style type="text/css">
+<!--
+@page { size: 8.27in 11.69in; margin: 0.79in }
+H1 { margin-bottom: 0.08in }
+H1.western { font-family: "Arial", sans-serif; font-size: 16pt }
+H1.cjk { font-family: "MS Mincho"; font-size: 16pt }
+H1.ctl { font-family: "Tahoma"; font-size: 16pt }
+P { margin-bottom: 0.08in }
+-->
+  </style></head><body style="direction: ltr;" lang="en-US">
+<h1 class="western">Tut-Lab Week 5<br>
+</h1>
+
+<p style="margin-bottom: 0in;"><b><big>Aims</big>:
+</b></p>
+<ul>
+  <li>
+    <p>Understand polymorphism and interface type design</p>
+  </li>
+  <li>
+    <p>Gain practical experience implementing an interface type</p></li>
+  <li>
+    <p>Learn to evaluate different class implementations</p>
+  </li>
+  <li>
+    <p>Use and understand different notions of equality in Java<br>
+    </p>
+  </li>
+</ul>
+<p style="margin-bottom: 0in;"><b><big>Preparation:</big>
+</b></p>
+<ul>
+  <li>
+    <p>Review the definitions of sets and their basic operations</p>
+  </li>
+</ul>
+<h2>Sets<br>
+</h2>
+<ul>
+  <li>
+    <p>Define a <span style="font-weight: bold;">Set&lt;E&gt;</span>
+interface type that can handle elements of a generic type <span style="font-weight: bold;">E</span></p>
+  </li>
+  <ul>
+    <li>
+      <p>Consider operations on set membership (adding and removing elements, testing membership),
+and basic operations on sets (union, intersection, subset)</p>
+    </li>
+    <li>
+      <p>Include an equals method for sets</p>
+    </li>
+  </ul>
+  <li>
+    <p>Define a class realizing the <span style="font-weight: bold;">Set&lt;E&gt;</span>
+interface that uses an <span style="font-weight: bold;">ArrayList&lt;E&gt;</span> to store the elements</p>
+  </li>
+  <ul>
+    <li><p><span style="font-weight: bold;">Pay particular attention to equality of sets and set elements<br>
+      </span>
+  </p></li></ul>
+  <li>
+    <p>Explain how your code enforces the class invariant that all elements of a set are distinct</p></li>
+  <li>
+    <p>By having <span style="font-weight: bold;">Set&lt;E&gt;</span> implement <span style="font-weight: bold;">Iterable&lt;E&gt;</span>,
+define a method iterator() than returns an iterator over sets</p>
+  <ul>
+    <li><p>This method is straightforward (one line of Java)<br>
+      </span>
+  </p></li></ul>
+  <li>
+    <p>Write a test class for <span style="font-weight: bold;">Set&lt;E&gt;</span> that uses a <span style="font-weight: bold;">Scanner</span>
+to read elements from an input file, then add them to various sets (e.g. of type <span style="font-weight: bold;">String</scan>)
+  </li>
+  <ul>
+    <li><p>Each line of the input should contain the elements of one set
+      </span>
+  </p></li></ul>
+</ul>
+</body></html>
