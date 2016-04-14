@@ -1,5 +1,3 @@
-package week05;
-
 public interface Set<E> extends Iterable<E> {
 
 	public boolean add(E e);
