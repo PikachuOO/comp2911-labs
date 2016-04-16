@@ -1,5 +1,5 @@
 
-public class Edge {
+public class Edge<E> {
 
 	private Node<E> nodeOne;
 	private Node<E> nodeTwo;
@@ -11,11 +11,11 @@ public class Edge {
 		this.weight = weight;
 	}
 	
-	public Node<E> getNodeOne() {
+	public Node<E>  getNodeOne() {
 		return nodeOne;
 	}
 	
-	public Node<E> getNodeTwo() {
+	public Node<E>  getNodeTwo() {
 		return nodeTwo;
 	}
 }
