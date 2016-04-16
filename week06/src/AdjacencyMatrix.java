@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class AdjacencyMatrix<E> implements Graph<E> {
 	
 //	private Edge[][] adjacencyMatrix;
-	private ArrayList[][] adjacencyMatrix;
+	private ArrayList<E>[][] adjacencyMatrix;
 	private int numVertices;
 	private int numEdges;
 	
@@ -14,15 +14,35 @@ public class AdjacencyMatrix<E> implements Graph<E> {
 	}
 
 	@Override
-	public boolean addNode(Node<E> n) {
-		// TODO Auto-generated method stub
+	public boolean addNode(E e) {
+		if (!nodeExists(e)) {
+			Node n = new Node(e);
+			insertNode(n);
+			return true;
+		}
 		return false;
 	}
 
 	@Override
-	public boolean removeNode(Node<E> n) {
-		// TODO Auto-generated method stub
+	public boolean removeNode(E e) {
+		if (nodeExists(e)) {
+			removeNode(n);
+			return true;
+		}
 		return false;
+	}
+	
+	private boolean nodeExists(E findE) {
+		for (ArrayList<E>[] e : adjacencyMatrix) {
+			if (e.equals(findE)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	private void insertNode(Node n) {
+		adjacencyMatrix.add(n);		// TODO
 	}
 	
 	@Override
@@ -74,6 +94,18 @@ public class AdjacencyMatrix<E> implements Graph<E> {
 	
 	public int getNumEdges() {
 		return numEdges;
+	}
+
+	@Override
+	public boolean addEdge(E nodeOne, E nodeTwo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean removeEdge(E nodeOne, E nodeTwo) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
