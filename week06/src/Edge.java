@@ -11,11 +11,14 @@ public class Edge<E> {
 		this.weight = weight;
 	}
 	
-	public Node<E>  getNodeOne() {
+	public Node<E> getOtherNode(Node<E> n) {
+		if (n == nodeOne) {
+			return nodeTwo;
+		}
 		return nodeOne;
 	}
 	
-	public Node<E>  getNodeTwo() {
-		return nodeTwo;
+	public int getWeight() {
+		return weight;
 	}
 }

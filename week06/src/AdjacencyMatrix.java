@@ -3,12 +3,12 @@ import java.util.ArrayList;
 public class AdjacencyMatrix<E> implements Graph<E> {
 	
 //	private Edge[][] adjacencyMatrix;
-	private ArrayList<E>[][] adjacencyMatrix;
+	private ArrayList<ArrayList<E>> adjacencyMatrix;
 	private int numVertices;
 	private int numEdges;
 	
 	public AdjacencyMatrix() {
-		adjacencyMatrix = new ArrayList[0][0];
+		adjacencyMatrix = new ArrayList<ArrayList<E>>();
 		numVertices = 0;
 		numEdges = 0;
 	}
@@ -18,31 +18,39 @@ public class AdjacencyMatrix<E> implements Graph<E> {
 		if (!nodeExists(e)) {
 			Node n = new Node(e);
 			insertNode(n);
+			ArrayList<E> newList = new ArrayList<E>();
+			adjacencyMatrix.add(new ArrayList<E>());
 			return true;
 		}
 		return false;
 	}
 
+	public void printMatrix() {
+		for (ArrayList<E> aL : adjacencyMatrix) {
+			System.out.println(aL + ": ");
+			for (E e : aL) {
+				System.out.println(e);
+			}
+		}
+	}
+	
 	@Override
 	public boolean removeNode(E e) {
 		if (nodeExists(e)) {
-			removeNode(n);
+			removeNode(e);
 			return true;
 		}
 		return false;
 	}
 	
-	private boolean nodeExists(E findE) {
-		for (ArrayList<E>[] e : adjacencyMatrix) {
+	@Override
+	public boolean nodeExists(E findE) {
+		for (ArrayList<E> e : adjacencyMatrix) {
 			if (e.equals(findE)) {
 				return true;
 			}
 		}
 		return false;
-	}
-	
-	private void insertNode(Node n) {
-		adjacencyMatrix.add(n);		// TODO
 	}
 	
 	@Override

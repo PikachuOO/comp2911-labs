@@ -2,7 +2,7 @@ import java.util.LinkedList;
 
 public class AdjacencyList<E> implements Graph<E> {
 
-	private LinkedList<Node<E>> nodes;
+	private LinkedList<LinkedList<Node<E>>> nodes;
 	
 	
 	@Override
