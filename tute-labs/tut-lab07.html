@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=iso-8859-1"><title></title>
+  <meta name="GENERATOR" content="OpenOffice.org 2.4 (Linux)">
+  <meta name="CREATED" content="20080311;16155595">
+  <meta name="CHANGED" content="20090309;13353600">
+  <style type="text/css">
+<!--
+@page { size: 8.27in 11.69in; margin: 0.79in }
+H1 { margin-bottom: 0.08in }
+H1.western { font-family: "Arial", sans-serif; font-size: 16pt }
+H1.cjk { font-family: "MS Mincho"; font-size: 16pt }
+H1.ctl { font-family: "Tahoma"; font-size: 16pt }
+P { margin-bottom: 0.08in }
+-->
+  </style></head><body style="direction: ltr;" lang="en-US">
+<h1 class="western">Tut-Lab Week 7<br>
+</h1>
+<p style="margin-bottom: 0in;"><b><big>Aims</big>:
+</b></p>
+<ul>
+  <li>
+    <p style="margin-bottom: 0in;">Understand the
+behaviour of heuristic search algorithms</p>
+  </li>
+  <li>
+    <p>Gain practical experience implementing a search algorithm</p>
+  </li>
+</ul>
+<p style="margin-bottom: 0in;"><b><big>Preparation:</big>
+</b></p>
+<ul>
+  <li><p>Review the material on A* search<br></p></li>
+  <li><p>Review the <span style="font-family: monospace;"><big>Strategy</big> </span>pattern</p></li>
+</ul>
+<h2>Problem-Solving Algorithms</h2>
+<ul>
+  <li>
+    <p>Consider again the route-finding problem using the Romania map<br>
+    </p>
+  </li>
+</ul>
+<div style="text-align: center;"><img alt="&lt;romania.png&gt;" src="romania.png" style="width: 752px; height: 367px;"><br>
+</div>
+<ul>
+  <li>What
+order are nodes in the state space expanded for each of the following
+algorithms when searching for a (shortest) path between Arad and
+Bucharest (when there is a choice of nodes, take the one earliest in
+the alphabetical ordering)?</li>
+</ul>
+<ul style="margin-left: 40px; list-style-type: circle;">
+  <li>
+    <p>A* search with straight-line distance heuristic (inefficient, guaranteed optimal solution)</p>
+  </li>
+</ul>
+<ul>
+  <li>
+    <p>Modify your implementation of breadth-first search to implement
+A* search for route-finding in the Romania
+map<br>
+    </p>
+  </li>
+  <ul>
+    <li>
+      <p>Use a class that implements the <span style="font-weight: bold;">Graph&lt;E&gt; </span>interface type to
+store the map<br>
+      </p>
+    </li>
+    <li>
+      <p>Use a <span style="font-weight: bold;">PriorityQueue&lt;E&gt;</span>
+to store the nodes generated in the search<br>
+      </p>
+    </li>
+    <li>
+      <p>Store the successors of a node in an <span style="font-weight: bold;">ArrayList</span> and make sure they are
+added into the <span style="font-weight: bold;">PriorityQueue</span>
+in order of <span style="font-style: italic;">f</span> value<span style="font-weight: bold;"><br>
+      </span></p>
+    </li>
+  </ul>
+</ul>
+<ul>
+  <li>
+    <p>Refactor your design<br>
+    </p>
+  </li>
+  <ul>
+    <li>
+      <p>Apply the <span style="font-family: monospace;"><big>Strategy</big> </span>pattern
+so that the heuristic used by A* search is passed as a parameter to an appropriate method<span style="font-weight: bold;"></span> &#8211; are there any tradeoffs associated with the choice of class or method?</p>
+    </li>
+    <li>
+      <p>Draw a UML class diagram of your program, making sure your
+design and code conforms to the <span style="font-family: monospace;"><big>Strategy</big>
+      </span>pattern</p>
+    </li>
+  </ul>
+</ul>
+</body></html>

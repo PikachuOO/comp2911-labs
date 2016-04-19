@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=iso-8859-1"><title></title>
+  <meta name="GENERATOR" content="OpenOffice.org 2.4 (Linux)">
+  <meta name="CREATED" content="20080311;16155595">
+  <meta name="CHANGED" content="20090309;13353600">
+  <style type="text/css">
+<!--
+@page { size: 8.27in 11.69in; margin: 0.79in }
+H1 { margin-bottom: 0.08in }
+H1.western { font-family: "Arial", sans-serif; font-size: 16pt }
+H1.cjk { font-family: "MS Mincho"; font-size: 16pt }
+H1.ctl { font-family: "Tahoma"; font-size: 16pt }
+P { margin-bottom: 0.08in }
+-->
+  </style></head><body style="direction: ltr;" lang="en-US">
+<h1 class="western">Tut-Lab Week 6<br>
+</h1>
+<p style="margin-bottom: 0in;"><b><big>Aims</big>:
+</b></p>
+<ul>
+  <li>
+    <p>Consolidate knowledge of basic search algorithms </p>
+  </li>
+  <li>
+    <p>Reinforce usage of design patterns<br>
+    </p>
+  </li>
+</ul>
+<p style="margin-bottom: 0in;"><b><big>Preparation:</big>
+</b></p>
+<ul>
+  <li>
+    <p>Review graphs and basic search algorithms from COMP1927</p>
+  </li>
+  </li>
+  <li>
+    <p>Review the <span style="font-family: monospace;"><big>Strategy</big> </span>pattern</p>
+  </li>
+  <li><p>Review the use of the <span style="font-weight: bold;">Comparator</span> interface type for sorting collections<br>
+</p></li>
+</ul>
+
+<h2>Graphs<br>
+</h2>
+<ul>
+<li>
+    <p style="">A <span style="font-style: italic;">directed graph</span>
+is a set of nodes and a binary relation over this set (that node <span style="font-style: italic;">a</span> is related to node <span style="font-style: italic;">b</span> can be represented by an arrow
+from <span style="font-style: italic;">a</span> to <span style="font-style: italic;">b</span>)<br>
+    </p>
+  </li><li>
+    <p>Define a generic <span style="font-weight: bold;">Graph&lt;E&gt;
+    </span>interface type that can
+handle
+nodes of a generic type <span style="font-weight: bold;">E</span></p>
+  </li><ul><li>
+      <p>What are suitable accessors and
+mutators that would be
+needed with this interface type?</p>
+    </li><li>
+      <p>Apart from the basic operations, can you think of some more
+complex graph operations that could be part of the interface?</p>
+    </li></ul>
+</ul>
+<ul>
+<li>
+    <p>As you will recall from COMP1927, the two standard ways of
+representing a graph are the <span style="font-style: italic;">adjacency
+matrix</span> and the <span style="font-style: italic;">adjacency list</span></p>
+  </li><ul><li>If a graph has<span style="font-style: italic;"> n </span>nodes,
+an adjacency matrix is an<span style="font-style: italic;"> n</span>
+&#215; <span style="font-style: italic;">n </span>matrix with entry
+1 (or some other data value) in the<span style="font-style: italic;"> i</span>,
+      <span style="font-style: italic;">j</span> element if node <span style="font-style: italic;">i </span>is related to node <span style="font-style: italic;">j</span>, while the adjacency list is a
+list whose elements are lists, where for element <span style="font-style: italic;">i</span> of the main list, the associated
+list is of those nodes <span style="font-style: italic;">j </span>such
+that<span style="font-style: italic;"> </span>node <span style="font-style: italic;">i </span>is related to node<span style="font-style: italic;"> j</span></li></ul><li>
+    <p>Choose one of the graph representations and provide a class that
+implements the <span style="font-weight: bold;">Graph&lt;E&gt; </span>interface
+type in this way</p>
+  </li><li>
+    <p>Implement a test class that creates and performs some basic operations on graphs
+</p><ul>
+<li><p>Verify that the
+implementation really is generic by creating and manipulating two
+graphs whose nodes have different types<span style="font-weight: bold;">
+</span></p></li></ul>
+    <p></p>
+  </li>
+</ul>
+<ul>
+<li>
+    <p>Define some suitable class invariants for your implementation of
+the <span style="font-weight: bold;">Graph&lt;E&gt; </span>interface
+type and show that they are satisfied</p>
+  </li>
+</ul>
+<h2>Basic Search Algorithms</h2>
+<ul>
+  <li>
+    <p>Consider the route-finding problem using the
+following Romania map as an example (ignore the straight-line distances
+for now)<br>
+    </p>
+  </li>
+</ul>
+<div style="text-align: center;"><img alt="&lt;romania.png&gt;" src="romania.png" style="width: 752px; height: 367px;"><br>
+</div>
+<ul>
+  <li>Define the route-finding problem (from Arad to Bucharest) as a state space
+search problem </li>
+</ul>
+<ul>
+  <li>What order are nodes in the state space expanded for each of the following
+algorithms when searching for a path between Arad and
+Bucharest (when there is a choice of nodes, take the one earliest in
+the alphabetical ordering)?</li>
+</ul>
+<ul style="margin-left: 40px; list-style-type: circle;">
+  <li>
+    <p>Depth-first search (efficient use of space but may not terminate)</p>
+  </li>
+  <li>
+    <p>Breadth-first search (space inefficient, guaranteed to find a solution)</p>
+  </li>
+</ul>
+<ul>
+  <li>
+    <p>Implement breadth-first search for route-finding in the Romania map<br>
+    </p>
+  </li>
+  <ul>
+    <li>
+      <p>Use a class that implements the <span style="font-weight: bold;">Graph&lt;E&gt; </span>interface type to
+store the map<br>
+      </p>
+    </li>
+    <li>
+      <p>Use a class that implements the <span style="font-weight: bold;">Queue&lt;E&gt;</span>
+interface type to
+store the nodes generated in the search: what information,
+besides the state,&nbsp;needs to be stored at each node<span style="font-weight: bold;"></span>?<br>
+      </p>
+    </li>
+    <li>
+      <p>Store the successors of a node in an <span style="font-weight: bold;">ArrayList</span> and make sure they are
+sorted in alphabetical order of the city name before adding them to the
+      <span style="font-weight: bold;">Queue</span></p>
+    </li>
+    <li>
+      <p>How did you handle the problem of infinite looping in the
+search
+space?</p>
+    </li>
+  </ul>
+</ul>
+<ul>
+
+  <li>
+    <p>Refactor your design<br>
+    </p>
+  </li>
+  <ul>
+    <li>
+      <p>Apply the <span style="font-family: monospace;"><big>Strategy</big> </span>pattern
+so that the successors of a node are sorted using an anonymous class
+that implements the <span style="font-weight: bold;">Comparator</span>
+interface type: in either the method that computes the successors of a node or the method
+that adds those successors to the <span style="font-weight: bold;">Queue</span> &#8211; is
+either of these options better?</p>
+    </li>
+    <li>
+      <p>Draw a UML class diagram of your program, making sure your
+design and code conforms to the <span style="font-family: monospace;"><big>Strategy</big> </span>pattern</p>
+    </li>
+  </ul>
+</ul>
+</body></html>
