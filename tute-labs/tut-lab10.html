@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=iso-8859-1"><title></title>
+  <meta name="GENERATOR" content="OpenOffice.org 2.4 (Linux)">
+  <meta name="CREATED" content="20080311;16155595">
+  <meta name="CHANGED" content="20090309;13353600">
+  <style type="text/css">
+<!--
+@page { size: 8.27in 11.69in; margin: 0.79in }
+H1 { margin-bottom: 0.08in }
+H1.western { font-family: "Arial", sans-serif; font-size: 16pt }
+H1.cjk { font-family: "MS Mincho"; font-size: 16pt }
+H1.ctl { font-family: "Tahoma"; font-size: 16pt }
+P { margin-bottom: 0.08in }
+-->
+  </style></head><body style="direction: ltr;" lang="en-US">
+<h1 class="western">Tut-Lab Week 11<br>
+</h1>
+<p style="margin-bottom: 0in;"><b><big>Aim</big>:
+</b></p>
+<ul>
+  <li>
+    <p style="margin-bottom: 0in;">Understand and use the <big><span style="font-family: monospace;">Composite</span></big> and the <big><span style="font-family: monospace;">Decorator</span></big> design patterns</p>
+  </li>
+</ul>
+<p style="margin-bottom: 0in;"><b><big>Preparation:</big>
+</b></p>
+<ul>
+  <li>
+    <p style="margin-bottom: 0in;">Review the general form of design
+patterns and in particular the <big><span style="font-family: monospace;">Composite</span></big>
+and <big><span style="font-family: monospace;">Decorator</span></big> patterns</p>
+  </li>
+</ul>
+<h2>Design Patterns<br>
+</h2>
+<ul>
+  <li>
+    <p style="">In a manufacturing plant, a product (such as a car or a
+computer) is assembled from other parts</p>
+  </li>
+  <li>
+    <p style="">Manufactured parts, in turn, are assembled from smaller
+parts, which may
+themselves be basic or assembled parts</p>
+  </li>
+  <ul>
+    <li>
+      <p style="">For example, a car might
+be assembled from a chassis, an engine and a body; in turn, the chassis
+might be assembled from a frame and some wheels, etc. (the details do
+not matter for the purposes of this exercise)</p>
+    </li>
+  </ul>
+  <li>
+    <p>Use the <big><span style="font-family: monospace;">Composite</span></big>
+pattern to write Java classes for an <span style="font-weight: bold;">Assembly</span> and an <span style="font-weight: bold;">Item</span>
+with&nbsp;methods for calculating the total price of any part<br>
+    </p>
+  </li>
+  <ul>
+    <li>
+      <p>Each <span style="font-weight: bold;">Item</span> has a given
+price, and the price of an <span style="font-weight: bold;">Assembly</span>
+is just the total price of all the parts in the assembly</p>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <p>Draw a UML class diagram for your program, making sure your code
+conforms to the <big><span style="font-family: monospace;">Composite</span></big>
+pattern</p>
+    </li>
+  </ul>
+  <li>
+    <p>Use the <span style="font-family: monospace;"><big>Decorator</big>
+    </span>pattern to allow discounted prices: discounts can apply to
+both basic and assembled parts, even already discounted parts</p>
+  </li>
+  <ul>
+    <li><p>Extend the UML class diagram for your program, making sure your code
+conforms to both the <big><span style="font-family: monospace;">Composite</span></big>
+and <big><span style="font-family: monospace;">Decorator</span></big> patterns
+  </p></li></ul>
+</ul>
+<ul>
+</ul>
+</body></html>

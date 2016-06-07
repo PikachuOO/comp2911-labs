@@ -1,0 +1,143 @@
+<HTML>
+<HEAD>
+  <BASE TARGET="_self">
+  <TITLE>COMP2911 Engineering Design in Computing</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+
+<h2 align="center">
+COMP2911 Engineering Design in Computing
+</h2>
+<h3 align="center">
+Semester 1, 2016
+</h3>
+
+<script
+  type="text/JavaScript"
+  language="JavaScript">
+// Original code from http://www.chami.com/tips/Internet/041198I.html
+// Accessed 17 April 2008
+// Modified by Bill Wilson to report 4-digit years and full month names
+// will not work correctly for documents last modified in the 1990s
+// format date as dd month yyyy
+// example: 12 January 2007
+function date_ddmonthyyyy(date)
+{
+  var d = date.getDate();
+  var m = date.getMonth() + 1;
+  var y = date.getYear();
+
+  // handle different year values
+  // returned by IE and NS in
+  // the year 2000.
+  if(y >= 2000)
+  {
+    y -= 2000;
+  }
+  if(y >= 100)
+  {
+    y -= 100;
+  }
+  // will not work correctly for documents last modified in the 1990s
+  y += 2000;
+
+  var month =
+    ( 1==m)?'January':( 2==m)?'February':(3==m)?'March':
+    ( 4==m)?'April':( 5==m)?'May':(6==m)?'June':
+    ( 7==m)?'July':( 8==m)?'August':(9==m)?'September':
+    (10==m)?'October':(11==m)?'November':'December';
+
+  return "" + d + " " + month + " " + y;
+}
+
+function date_lastmodified()
+{
+  var lmd = document.lastModified;
+  var s   = "Unknown";
+  var d1;
+
+  if(0 != (d1=Date.parse(lmd)))
+  {
+    s = "" + date_ddmonthyyyy(new Date(d1));
+  }
+
+  return s;
+}
+
+</script>
+
+<h2 align="center">
+Tut-Labs
+</h2>
+
+<h3>
+<center>
+<font color=red>Last updated: <script language="JavaScript">document.write(date_lastmodified());</script></font>
+</h3>
+
+Note: Tut-labs start in Week 2.
+<p>
+
+<table cellspacing=0 cellpadding=5 border=1 align="center">
+<tr><th>Week<th>Topic<th>Task</tr>
+<tr><td align="center">2
+<td>Object-Oriented Programming
+<td><a href="tut-lab02.html">tut-lab02.html</a>
+</tr>
+<tr><td align="center">3
+<td>Programming by Contract
+<td><a href="tut-lab03.html">tut-lab03.html</a>
+</tr>
+<tr><td align="center">4
+<td>Object-Oriented Design
+<td><a href="tut-lab04.html">tut-lab04.html</a>
+</tr>
+
+<tr bgcolor="#c0c0c0"><td colspan=4 align="center">Mid-semester break</tr>
+
+<tr><td align="center">5
+<td>Generic Types and Polymorphism
+<td><a href="tut-lab05.html">tut-lab05.html</a>
+</tr>
+<tr><td align="center">6
+<td>Basic Search Algorithms
+<td><a href="tut-lab06.html">tut-lab06.html</a>
+</tr>
+<tr><td align="center">7
+<td>Problem-Solving Algorithms
+<td><a href="tut-lab07.html">tut-lab07.html</a>
+</tr>
+<tr><td align="center">8
+<td>Agile Software Processes
+<td><a href="tut-lab08.html">tut-lab08.html</a>
+</tr>
+<tr><td align="center">9
+<td>User Interface Design
+<td><a href="tut-lab09.html">tut-lab09.html</a>
+</tr>
+<tr><td align="center">10
+<td>Sprint Reviews
+<td>&nbsp;
+</tr>
+<tr><td align="center">11
+<td>Design Patterns
+<td><a href="tut-lab10.html">tut-lab10.html</a>
+</tr>
+<tr><td align="center">12
+<td>Concurrency
+<td><a href="tut-lab11.html">tut-lab11.html</a>
+</tr>
+<tr><td align="center">13
+<td>Project Assessment
+<td>&nbsp;
+</tr>
+</table>
+<p>
+
+<hr>
+<em>Wayne Wobcke</em>
+<br>
+Last updated: <script language="JavaScript">document.write(date_lastmodified());</script><br>
+CRICOS Provider Code No. 00098G
+</BODY>
+</HTML>
