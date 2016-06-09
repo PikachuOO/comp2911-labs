@@ -1,32 +1,12 @@
 
-public class File implements FileSystem {
+public class File implements IFile {
 	
 	private final int id;
-	private final String fileName;
+	private final String filename;
 	
-	public File(int id, String fileName) {
+	public File(int id, String filename) {
 		this.id = id;
-		this.fileName = fileName;
-	}
-
-	@Override
-	public boolean addFile(FileSystem file) {
-		return false;
-	}
-
-	@Override
-	public boolean removeFile(FileSystem file) {
-		return false;
-	}
-
-	@Override
-	public int numFiles() {
-		return 0;
-	}
-
-	@Override
-	public int numFolders() {
-		return 0;
+		this.filename = filename;
 	}
 
 	@Override
@@ -36,6 +16,11 @@ public class File implements FileSystem {
 	
 	@Override
 	public String getFilename() {
-		return fileName;
+		return filename;
+	}
+	
+	@Override
+	public String toString() {
+		return filename;
 	}
 }

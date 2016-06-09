@@ -1,19 +1,17 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
-public class Folder implements FileSystem {
+public class Folder extends File {
 
-	private final int id;
-	private final String fileName;
-	private ArrayList<FileSystem> files;
+	private ArrayList<IFile> files;
 	
-	public Folder(int id, String fileName) {
-		this.id = id;
-		this.fileName = fileName;
-		this.files = new ArrayList<FileSystem>();
+	public Folder(int id, String filename) {
+		super(id, filename);
+		this.files = new ArrayList<IFile>();
 	}
 
-	@Override
-	public boolean addFile(FileSystem file) {
+	public boolean addFile(IFile file) {
 		if (fileExists(file, false)) {
 			return false;
 		}
@@ -22,41 +20,16 @@ public class Folder implements FileSystem {
 		return true;
 	}
 
-	@Override
-	public boolean removeFile(FileSystem file) {
+	public boolean removeFile(IFile file) {
 		if (fileExists(file, false)) {
 			files.remove(file);
 		}
 		return false;
 	}
 
-	@Override
-	public int numFiles() {
-		int result = 0;
 
-		for (FileSystem considerFile : files) {
-			if (considerFile instanceof File) {
-				result += 1;
-			}
-		}
-		return result;
-	}
-
-	@Override
-	public int numFolders() {
-		int result = 0;
-		
-		for (FileSystem considerFile : files) {
-			if (considerFile instanceof Folder) {
-				result += 1;
-			}
-		}
-		
-		return result;
-	}
-
-	public boolean fileExists(FileSystem file, boolean recurse) {
-		for (FileSystem considerFile : files) {
+	public boolean fileExists(IFile file, boolean recurse) {
+		for (IFile considerFile : files) {
 			if (file == considerFile) {
 				return true;
 
@@ -69,14 +42,39 @@ public class Folder implements FileSystem {
 		
 		return false;
 	}
-
-	@Override
-	public int getId() {
-		return id;
-	}
 	
-	@Override
-	public String getFilename() {
-		return fileName;
+	public String list(boolean isRoot) {
+		String result;
+		Comparator comparator = new FileComparator();
+		Collections.sort(files, comparator);
+		
+		if (isRoot) {
+			result = super.getFilename();
+		} else {
+			result = "";
+		}
+
+		for (IFile file : files) {
+			if (file instanceof Folder) {
+				result = result.concat("\t\n" + file.getFilename());
+//				result = result.concat("\t\t" + ((Folder) file).list(false));
+				String newls = ((Folder) file).list(false);
+				newls = newls.replaceAll("\n", "\n   ");
+				result = result.concat(newls);
+			} else {
+				result = result.concat("\n" + file.getFilename());
+			}
+		}
+		
+		return result;
 	}
+
+//	public int compareTo(IFile a) {
+//		if (this.getFilename().compareTo(a.getFilename()) {
+//			return 1;
+//		} if (this.getFilename().equals(a.getFilename()) {
+//			return 0;
+//		}
+//		return -1;
+//	}
 }
