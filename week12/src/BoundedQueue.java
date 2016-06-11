@@ -42,7 +42,7 @@ public class BoundedQueue<E> {
 
 		try {
 			
-			if (isEmpty()) {
+			while (isEmpty()) {
 				try {
 					emptyCondition.await();
 				} catch (InterruptedException e) {
@@ -78,7 +78,7 @@ public class BoundedQueue<E> {
 		
 		try {
 			
-			if (isFull()) {
+			while (isFull()) {
 				try {
 					fullCondition.await();
 				} catch (InterruptedException e) {
